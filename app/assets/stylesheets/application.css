@@ -15,3 +15,57 @@
  *= require foundation_and_overrides
 
  */
+.git {
+  font-weight: bold;
+}
+.bounty{
+  font-family: sans-serif;
+  color: #F05D1E
+}
+.logo{
+  padding: 5px;
+}
+.nav-head{
+  font-size: 32px;
+  width: 100%;
+  padding: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.13), 0 3px 10px 0 rgba(0, 0, 0, 0.11);
+  background-color: rgb(240, 240, 240)
+}
+.content{
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.13), 0 3px 10px 0 rgba(0, 0, 0, 0.11);
+}
+.head-content{
+  height: 100%;
+}
+.head-links {
+  text-decoration: none;
+  text-align: right;
+  list-style: none;
+  margin-top: -45px;
+  font-size: 24px;
+  float: right;
+}
+.head-links li {
+  display: inline-block;
+  padding-left: 20px;
+}
+.head-links li a {
+  color:black;
+}
+.head-links li a:hover {
+  color:#5C5C5C;
+}
+.footer{
+  font-size: 8px;
+  background-color: rgb(240, 240, 240)
+  padding: 5px;
+  padding-top: 10px;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+}
