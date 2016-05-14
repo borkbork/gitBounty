@@ -4,7 +4,9 @@
 
 
 // Social Button
-
+.lv-item ul li{
+  display: inline-block;
+}
 .btn-auth,
 .btn-auth:visited {
     position: relative;
@@ -192,6 +194,6 @@ font-family: "Helvetica Neue",Arial,sans-serif;
 font-size: 16px;
 font-weight: 300;
 line-height: 1.5625;
-margin-bottom: 15px; 
+margin-bottom: 15px;
 
 }

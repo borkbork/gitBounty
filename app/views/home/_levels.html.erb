@@ -1,0 +1,15 @@
+<% get_levels.each do |lang, lv| %>
+  <div class="lv-item row">
+    <ul>
+      <li class="lv-lang">
+        <%= lang %>
+      </li>
+      <li class="lv-level">
+        lv <%= lv.to_i %>
+      </li>
+    </ul>
+    <div class="progress large-6 success round">
+      <span class="meter" style="width: <%= lv.to_s.split(".")[1][0,2] %>%"></span>
+    </div>
+  </div>
+<% end %>
