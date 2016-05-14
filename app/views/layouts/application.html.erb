@@ -22,7 +22,11 @@
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+          <% if !github_authenticated? %>
+            <li><a href="/login">Login</a></li>
+          <% else %>
+            <li><a href="/logout">Logout</a></li>
+          <% end %>
         </ul>
       </div>
     </nav>
