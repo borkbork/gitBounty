@@ -9,4 +9,9 @@ module ApplicationHelper
   	end
     @user
   end
+
+  def get_xp
+	@issues = github_user.api.issues
+	@issues.size * 10
+  end
 end

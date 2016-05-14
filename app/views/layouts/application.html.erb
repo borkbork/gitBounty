@@ -33,12 +33,15 @@
         <div class="github-avatar head-boxes">
 		  <%= image_tag current_user.avatar_url, :class => "img-responsive" %>
 		</div>
-		<% if current_user%>
-		  <%= current_user_local.level %>
+		<% if current_user %>
+		  <%= get_xp %> xp
 		<% end %>
       <% end %>
     </nav>
 	<div class="content large-8 large-offset-2">
+	  <%= @r_id = github_user.api.issues[0].repository.id %>
+	  <%= github_user.api.repositories %>
+	  
       <%= yield %>
     </div>
     <div class="footer">
