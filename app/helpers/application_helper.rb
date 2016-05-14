@@ -15,20 +15,18 @@ module ApplicationHelper
 
   def get_dev_level
     Rails.cache.fetch('dev_level/' + github_user.api.user.login) do
-      xp = 0
-      get_levels.each do |lang, val| xp += val end
-      xp
+      lv = 0
+      get_levels.each do |lang, val| lv += val end
+      lv
     end
   end
-
-  def get_levels
-    puts github_user.api.user.login
-    Rails.cache.fetch('xp/' + github_user.api.user.login) do
+  def get_xp
+    Rails.cache.fetch('levels/' + github_user.api.user.login) do
       issues = get_closed_issues
       xp = Hash.new
       issues.each do |issue|
         langs = github_user.api.languages(issue.repository.full_name)
-        points = (issue.closed_at - issue.created_at)/(24 * 60 * 60).to_f/3
+        points = (issue.closed_at - issue.created_at)/(24 * 60 * 60).to_f
         total_rows = 0
         langs.each do |lang, val| total_rows += val end
         langs.each do |lang, val|
@@ -36,6 +34,15 @@ module ApplicationHelper
         end
       end
       xp
+    end
+  end
+  def get_levels
+    Rails.cache.fetch('levels/' + github_user.api.user.login) do
+      level = Hash.new
+      get_xp.each do |lang, val|
+        level[lang] = Math.sqrt(val.to_f/30.0)
+      end
+      level
     end
   end
 end
