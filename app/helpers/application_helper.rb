@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def get_dev_level
-    Rails.cache.fetch('dev_level/#{github_user.api.user.name}') do
+    Rails.cache.fetch('dev_level/' + github_user.api.user.login) do
       xp = 0
       get_levels.each do |lang, val| xp += val end
       xp
@@ -22,7 +22,8 @@ module ApplicationHelper
   end
 
   def get_levels
-    Rails.cache.fetch('xp/#{github_user.api.user.name}') do
+    puts github_user.api.user.login
+    Rails.cache.fetch('xp/' + github_user.api.user.login) do
       issues = get_closed_issues
       xp = Hash.new
       issues.each do |issue|
