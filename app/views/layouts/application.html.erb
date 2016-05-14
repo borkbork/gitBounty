@@ -14,7 +14,7 @@
 
   <body>
     <nav class="large-12 nav-head">
-      <div class="large-offset-2 large-8 head-content">
+      <div class="large-offset-2 large-8 head-content head-boxes">
         <div class="logo">
           <span class="git">git</span><span class="bounty">Bounty!</span>
         </div>
@@ -22,9 +22,18 @@
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+          <% if !github_authenticated? %>
+            <li><a href="/login">Login</a></li>
+          <% else %>
+            <li><a href="/logout">Logout</a></li>
+          <% end %>
         </ul>
       </div>
+      <% if github_authenticated? %>
+        <div class="github-avatar head-boxes">
+          <%= image_tag github_user.api.user.avatar_url, :class => "img-responsive" %>
+        </div>
+      <% end %>
     </nav>
     <div class="content large-8 large-offset-2">
       <%= yield %>

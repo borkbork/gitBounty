@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ###Own gems below
 gem 'foundation-rails'
+gem 'warden-github-rails'
+
+
 ###end of own gems
 
 # Use ActiveModel has_secure_password
