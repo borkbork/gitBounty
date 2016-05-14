@@ -1,12 +1,12 @@
 ## About the application
-The application is a platform that allows users to bet on the completion of github issues. Users can bet on when github issues will be completed and developers can complete issues in order to get at piece of the current prizepool. Companies can also put money into the pool in order to make it more lucrative to bet/try to close the issue.
+Our webapplication allows users to compare their GitHub levels with their friends, this will encourage developers to contribute to open source projects. You get more XP the longer the issue has been open, since the an issue that has been open for a long time usually means that the issue is hard, which you should get more cred for completing.
 
 Written in rails.
 ## Setup
 ```
 $ bundle install
 $ rake db:setup
-$ rails s
+$ sh launch.sh (ask us about the script)
 ```
 ##### Special thanks
 We want to take this time to thank our friend and visionary, [Erik 'neon' Norlander](https://github.com/NeonNeon) who came up with this idea but were unfortunately not able to join us.
