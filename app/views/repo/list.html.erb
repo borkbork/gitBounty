@@ -1,0 +1,6 @@
+<h2><%= @type + ", " + @name + " asd" + params[:id] %></h2>
+<ul>
+  <% @repos.each do |repo| %>
+    <li><%= link_to repo.full_name, repo_url(@type, params[:id], repo.name) %></li>
+  <% end%>
+</ul>
