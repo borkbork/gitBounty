@@ -34,7 +34,7 @@
 		  <%= image_tag current_user.avatar_url, :class => "img-responsive" %>
 		</div>
 		<% if current_user %>
-		  lv <%= get_dev_level %>
+		  lv <%= get_dev_level.to_i %>
 		<% end %>
       <% end %>
     </nav>
