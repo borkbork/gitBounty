@@ -25,7 +25,7 @@ module ApplicationHelper
       issues = get_closed_issues
       xp = Hash.new
       issues.each do |issue|
-        langs = github_user.api.languages(issue.repository.full_name)
+        langs = get_langs_of_repo(issue.repository.full_name)
         points = (issue.closed_at - issue.created_at)/(24 * 60 * 60).to_f
         total_rows = 0
         langs.each do |lang, val| total_rows += val end
@@ -43,6 +43,11 @@ module ApplicationHelper
         level[lang] = Math.sqrt(val.to_f/10.0)
       end
       level
+    end
+  end
+  def get_langs_of_repo(id)
+    Rails.cache.fetch('repo/' + id) do
+      github_user.api.languages(id)
     end
   end
 end
