@@ -44,7 +44,8 @@
   text-decoration: none;
   text-align: right;
   list-style: none;
-  margin-top: -45px;
+  margin: 0 0 0 0;
+  margin-left: 0px !important;
   font-size: 24px;
   float: right;
 }
@@ -78,4 +79,8 @@
 }
 .head-boxes{
   display: inline-block;
+}
+.head-content{
+  display: flex;
+  align-items: center;
 }

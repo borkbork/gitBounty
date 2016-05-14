@@ -13,27 +13,27 @@
   </head>
 
   <body>
-    <nav class="large-12 nav-head">
-      <div class="large-offset-2 large-8 head-content head-boxes">
-        <div class="logo">
+    <nav class="large-12 small-12 nav-head">
+      <div class="large-offset-2 large-8 head-content row">
+        <div class="logo large-2 small-4 columns">
           <span class="git">git</span><span class="bounty">Bounty!</span>
         </div>
-        <ul class="head-links">
+        <ul class="head-links large-10 small-8 large-offset-2 columns">
           <% if !github_authenticated? %>
             <li><a href="/login">Login</a></li>
           <% else %>
             <li><a href="/logout">Logout</a></li>
           <% end %>
+          <% if github_authenticated? %>
+          <div class="github-avatar head-boxes">
+            <%= image_tag current_user.avatar_url, :class => "img-responsive" %>
+          </div>
+            <% if current_user %>
+              lv <%= get_dev_level.to_i %>
+            <% end %>
+          <% end %>
         </ul>
       </div>
-      <% if github_authenticated? %>
-        <div class="github-avatar head-boxes">
-		  <%= image_tag current_user.avatar_url, :class => "img-responsive" %>
-		</div>
-		<% if current_user %>
-		  lv <%= get_dev_level.to_i %>
-		<% end %>
-      <% end %>
     </nav>
 	<div class="content large-8 large-offset-2">
       <%= yield %>

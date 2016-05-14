@@ -9,9 +9,7 @@
 }
 .btn-auth,
 .btn-auth:visited {
-    position: relative;
     display: inline-block;
-    height: 22px;
     padding: 0 1em;
     border: 1px solid #999;
     border-radius: 2px;
@@ -44,14 +42,6 @@
 .btn-auth:active {
     color: #222;
     text-decoration: none;
-}
-
-.btn-auth:before {
-    content: "";
-    float: left;
-    width: 22px;
-    height: 22px;
-    background: url(auth-icons.png) no-repeat 99px 99px;
 }
 
 /**
@@ -152,6 +142,7 @@ body {
 
 .parallax-background {
   height: 620px;
+  border-radius: 10px;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -171,7 +162,6 @@ body {
   font-size: 50px;
   color: #fff;
   text-align: center;
-  margin-top: 5%;
 }
 
 .parallax-content {
@@ -182,11 +172,10 @@ body {
   text-decoration-style: wavy;
   margin-top: 15%;
   line-height: 20px;
-text-align: center;
-font-size: 50px;
-color: #fff;
-text-align: center;
-
+  text-align: center;
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
 }
 .info_main {
 color: #fff;
