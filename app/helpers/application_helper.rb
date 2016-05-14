@@ -40,7 +40,7 @@ module ApplicationHelper
     Rails.cache.fetch('levels/' + github_user.api.user.login) do
       level = Hash.new
       get_xp.each do |lang, val|
-        level[lang] = Math.sqrt(val.to_f/30.0)
+        level[lang] = Math.sqrt(val.to_f/10.0)
       end
       level
     end
