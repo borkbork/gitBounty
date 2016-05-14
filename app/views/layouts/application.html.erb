@@ -33,8 +33,8 @@
         <div class="github-avatar head-boxes">
 		  <%= image_tag current_user.avatar_url, :class => "img-responsive" %>
 		</div>
-		<% if current_user%>
-		  <%= current_user_local.level %>
+		<% if current_user %>
+		  lv <%= get_dev_level %>
 		<% end %>
       <% end %>
     </nav>

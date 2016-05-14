@@ -9,16 +9,22 @@ module ApplicationHelper
   	end
     @user
   end
+  def get_closed_issues
+    github_user.api.list_issues(nil, {:state => :closed})
+  end
+
+  def get_dev_level
+    get_closed_issues.size * 10/2
+  end
 
   def get_xp
-    issues = github_user.api.issues
+    issues = get_closed_issues
     xp = Hash.new
     issues.each do |issue|
       langs = github_user.api.languages(issue.repository.full_name)
-      points = 100
+      points = (issue.closed_at - issue.created_at)/(24 * 60 * 60).to_f/3
       total_rows = 0
       langs.each do |lang, val| total_rows += val end
-      p total_rows
       langs.each do |lang, val|
         xp[lang] = (val.to_f/total_rows.to_f)*points
       end
