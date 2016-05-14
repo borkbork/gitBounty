@@ -1,14 +1,15 @@
 <% get_levels.each do |lang, lv| %>
-  <div class="lv-item row">
-    <ul>
+  <div class="row">
+    <ul class="lv-item">
       <li class="lv-lang">
+        <%= image_tag "langs/#{lang.to_s.downcase}.png", size: "26" %>
         <%= lang %>
       </li>
       <li class="lv-level">
         lv <%= lv.to_i %>
       </li>
     </ul>
-    <div class="progress large-6 success round">
+    <div class="progress large-12 success round xp-bar">
       <span class="meter" style="width: <%= lv.to_s.split(".")[1][0,2] %>%"></span>
     </div>
   </div>
