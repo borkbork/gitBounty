@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'warden-github-rails'
 gem 'jquery-ui-rails'
-
+gem 'simple_form'
 
 ###end of own gems
 

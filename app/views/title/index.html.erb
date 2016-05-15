@@ -1,0 +1,9 @@
+<h3> All titles </h3>
+<div class="titles-container">
+  <% @titles.each do |title| %>
+    <div class="title-admin-card">
+      <%= render partial: 'title/title', :object => title %>
+      <%= link_to "edit", edit_title_url(title) %> | <%= link_to "delete", destroy_title_url(title) %>
+    </div>
+  <% end %>
+</div>
