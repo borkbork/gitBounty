@@ -4,6 +4,10 @@
 }
 .meter{
 }
+.lv-level {
+  padding-left: 1em; 
+  font-size: 24px;
+}
 .lv-item li{
   display: inline-block;
 }
@@ -11,7 +15,7 @@
   margin-top:10px;
   margin-bottom: 10px;
 }
-.lv-container {
+.lv-container, .lv-item {
   display: flex;
   align-items: center;
 }
