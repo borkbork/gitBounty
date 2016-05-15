@@ -21,12 +21,12 @@ module ApplicationHelper
     end
   end
   def get_xp
-    Rails.cache.fetch('levels/' + github_user.api.user.login) do
+    Rails.cache.fetch('xp/' + github_user.api.user.login) do
       issues = get_closed_issues
       xp = Hash.new
       issues.each do |issue|
         langs = get_langs_of_repo(issue.repository.full_name)
-        points = (issue.closed_at - issue.created_at)/(24 * 60 * 60).to_f
+        points = 20*Math.sqrt((issue.closed_at - issue.created_at)/(24 * 60 * 60) + 5) - 40
         total_rows = 0
         langs.each do |lang, val| total_rows += val end
         langs.each do |lang, val|
@@ -40,7 +40,7 @@ module ApplicationHelper
     Rails.cache.fetch('levels/' + github_user.api.user.login) do
       level = Hash.new
       get_xp.each do |lang, val|
-        level[lang] = Math.sqrt(val.to_f/10.0)
+        level[lang] = (val.to_f/3.0)**0.55
       end
       level
     end
