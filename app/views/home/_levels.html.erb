@@ -1,3 +1,4 @@
+<% timeout = 20 %>
 <% get_levels.each do |lang, lv| %>
   <div class="row lv-container">
     <ul class="lv-item small-2 columns">
@@ -9,7 +10,8 @@
       </li>
     </ul>
     <div class="progress small-9 success round xp-bar columns">
-      <span class="meter" style="width: <%= lv.to_s.split(".")[1][0,2] %>%"></span>
+      <span class="meter xp-progress" style="width: 0%" data-xp="<%= lv.to_s.split(".")[1][0,2] %>" data-wait="<%=timeout%>"></span>
     </div>
   </div>
+<% timeout += 200 %>
 <% end %>
