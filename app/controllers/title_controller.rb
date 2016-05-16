@@ -1,5 +1,7 @@
 class TitleController < ApplicationController
   before_action :set_title, only: [:show, :edit, :update, :destroy]
+  before_filter :ensure_admin
+
   def index
     @titles = Title.all.order(:lv_req)
     @langs = Set.new
@@ -40,6 +42,13 @@ class TitleController < ApplicationController
 private
   def set_title
     @title = Title.find(params[:id])
+  end
+  def ensure_admin
+    if github_user.api.organization_members('borkbork').any? { |e| e.login == github_user.api.user.login}
+      true
+    else
+      redirect_to root_url
+    end
   end
   def title_params
     params.require(:title).permit(:name,:lv_req,:lang)
