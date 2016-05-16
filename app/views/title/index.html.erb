@@ -1,0 +1,15 @@
+<h3> All titles </h3>
+<ul class="lang-head">
+  <% @langs.each do |lang| %>
+    <li><%= link_to lang.capitalize, titles_lang_path(lang) %></li>
+  <% end %>
+</ul>
+<div class="titles-container">
+  <% @titles.each do |title| %>
+    <div class="title-admin-card">
+      <%= render partial: 'title/title', :object => title %>
+      <%= link_to "edit", edit_title_url(title) %> | <%= link_to 'Destroy', destroy_title_url(title),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+    </div>
+  <% end %>
+</div>

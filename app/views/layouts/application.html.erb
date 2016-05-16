@@ -8,17 +8,20 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
     <nav class="large-12 small-12 nav-head">
       <div class="large-offset-2 large-8 head-content row">
-        <div class="logo large-2 small-4 columns">
-          <span class="git">git</span><span class="bounty">Bounty!</span>
-        </div>
+        <a href="/" style="text-decoration:none; color:black;">
+          <div class="logo large-2 small-4 columns">
+            <span class="git">git</span><span class="bounty">Bounty!</span>
+          </div>
+        </a>
         <ul class="head-links large-10 small-8 large-offset-2 columns">
+          <li><%= link_to "Titles", title_index_url %></li>
           <% if !github_authenticated? %>
             <li><a href="/login">Login</a></li>
           <% else %>

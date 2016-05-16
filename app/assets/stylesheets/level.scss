@@ -1,0 +1,33 @@
+.xp-bar {
+  background-color: #FFFEE0;
+  height: 1.8rem;
+}
+.meter{
+}
+.lv-level {
+  padding-left: 1em;
+  font-size: 24px;
+}
+.lv-item li{
+  display: inline-block;
+}
+.lv-item{
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.lv-container, .lv-item {
+  display: flex;
+  align-items: center;
+}
+.lv-container{
+  margin-bottom: 0.5em;
+}
+.lv-left-container{
+  text-align: center;
+  border-radius: 10px;
+}
+.lv-title {
+  background-color: rgb(223, 187, 60);
+  color: white;
+  border-radius: 10px;
+}
