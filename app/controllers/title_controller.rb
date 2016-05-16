@@ -33,6 +33,6 @@ private
     @title = Title.find(params[:id])
   end
   def title_params
-    params.require(:title).permit(:name,:lv_req)
+    params.require(:title).permit(:name,:lv_req,:lang)
   end
 end

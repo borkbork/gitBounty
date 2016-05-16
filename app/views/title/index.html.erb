@@ -3,7 +3,8 @@
   <% @titles.each do |title| %>
     <div class="title-admin-card">
       <%= render partial: 'title/title', :object => title %>
-      <%= link_to "edit", edit_title_url(title) %> | <%= link_to "delete", destroy_title_url(title) %>
+      <%= link_to "edit", edit_title_url(title) %> | <%= link_to 'Destroy', destroy_title_url(title),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
     </div>
   <% end %>
 </div>
