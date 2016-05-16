@@ -2,6 +2,10 @@ class TitleController < ApplicationController
   before_action :set_title, only: [:show, :edit, :update, :destroy]
   def index
     @titles = Title.all.order(:lv_req)
+    @langs = Set.new
+    @titles.each do |title|
+      @langs.add(title.lang)
+    end
   end
 
   def lang
