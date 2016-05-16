@@ -21,10 +21,12 @@
           </div>
         </a>
         <ul class="head-links large-10 small-8 large-offset-2 columns">
-          <li><%= link_to "Titles", title_index_url %></li>
           <% if !github_authenticated? %>
             <li><a href="/login">Login</a></li>
           <% else %>
+            <% if is_admin? %>
+              <li><%= link_to "Titles", title_index_url %></li>
+            <% end %>
             <li><a href="/logout">Logout</a></li>
           <% end %>
           <% if github_authenticated? %>

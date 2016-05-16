@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def is_admin?
+    github_user.api.organization_members('borkbork').any? { |e| e.login == github_user.api.user.login}
+  end
   def current_user_local
 	   User.where(:git_id => current_user.id).first
   end
