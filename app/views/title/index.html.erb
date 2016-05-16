@@ -1,4 +1,4 @@
-<h3> All titles </h3>
+<h3> All titles <%= link_to 'New', new_title_url %></h3>
 <ul class="lang-head">
   <% @langs.each do |lang| %>
     <li><%= link_to lang.capitalize, titles_lang_path(lang) %></li>
