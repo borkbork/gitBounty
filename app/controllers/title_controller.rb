@@ -3,6 +3,11 @@ class TitleController < ApplicationController
   def index
     @titles = Title.all.order(:lv_req)
   end
+
+  def lang
+    @titles = Title.where("lang = '#{params[:lang]}'").order(:lv_req)
+  end
+
   def new
     @title = Title.new
   end
