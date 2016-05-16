@@ -2,13 +2,17 @@ module ApplicationHelper
   def current_user_local
 	   User.where(:git_id => current_user.id).first
   end
-
   def current_user
   	if github_authenticated?
   	  @user = github_user.api.user
   	end
     @user
   end
+
+  def get_title(lang, lvl)
+    Title.where("lv_req <= '#{lvl}' AND lang = '#{lang.downcase}'").order(lv_req: :desc).first
+  end
+
   def get_closed_issues
     github_user.api.list_issues(nil, {:state => :closed})
   end

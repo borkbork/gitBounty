@@ -1,14 +1,22 @@
 <% timeout = 20 %>
 <% get_levels.each do |lang, lv| %>
   <div class="row lv-container">
-    <ul class="lv-item small-2 columns">
-      <li class="lv-lang">
-        <%= image_tag "langs/#{lang.to_s.downcase}.png", size: "48", alt:  lang.to_s, title: lang.to_s %>
-      </li>
-      <li class="lv-level">
-        lv <%= lv.to_i %>
-      </li>
-    </ul>
+    <div class="lv-left-container small-2 columns">
+      <ul class="lv-item">
+        <li class="lv-lang">
+          <%= image_tag "langs/#{lang.downcase}.png", size: "48", alt:  lang.to_s, title: lang.to_s %>
+        </li>
+        <li class="lv-level">
+          lv <%= lv.to_i %>
+        </li>
+      </ul>
+      <div class="lv-title">
+        <% title = get_title(lang, lv.to_i) %>
+        <% unless title.nil? %>
+        <%= title.name %>
+        <% end %>
+      </div>
+    </div>
     <div class="progress small-9 success round xp-bar columns">
       <span class="meter xp-progress" style="width: 0%" data-xp="<%= lv.to_s.split(".")[1][0,2] %>" data-wait="<%=timeout%>"></span>
     </div>
